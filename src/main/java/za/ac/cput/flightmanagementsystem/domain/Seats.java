@@ -9,22 +9,22 @@ public class Seats implements Serializable {
     @Id
     private long id;
     private int row;
-    private int seatPreferance;
+    private int seatPreference;
 
 
     public int isleOrWindow(int seatPref){
         switch(seatPref){
             case 1:
-                seatPreferance=1;
+                seatPreference =1;
                 break;
             case 2:
-                seatPreferance=2;
+                seatPreference =2;
                 break;
             case 3:
-                seatPreferance=3;
+                seatPreference =3;
                 break;
 
         }
-        return seatPreferance;
+        return seatPreference;
     }
 }
