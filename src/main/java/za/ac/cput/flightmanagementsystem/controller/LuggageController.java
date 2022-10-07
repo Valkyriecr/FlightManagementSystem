@@ -36,7 +36,7 @@ public class LuggageController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Luggage> updateEmployee(@RequestBody Luggage luggage) {
+    public ResponseEntity<Luggage> updateLuggage(@RequestBody Luggage luggage) {
         Luggage updateLuggage = luggageService.updateLuggage(luggage);
         return new ResponseEntity<>(updateLuggage, HttpStatus.OK);
     }

@@ -24,7 +24,7 @@ public class SeatsAvailableController {
         return new ResponseEntity<>(seatsAvailable, HttpStatus.OK);
     }
 
-    @GetMapping("/seatsavailable/find/{id}")
+    @GetMapping("/find/{id}")
     public ResponseEntity<SeatsAvailable> getSeatsAvailable (@PathVariable("id") Long id) {
         SeatsAvailable seatsAvailable = seatsAvailableService.findSeatsAvailableById(id);
         return new ResponseEntity<>(seatsAvailable, HttpStatus.OK);
@@ -37,7 +37,7 @@ public class SeatsAvailableController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<SeatsAvailable> updateEmployee(@RequestBody SeatsAvailable seatsAvailable) {
+    public ResponseEntity<SeatsAvailable> updateSeatsAvailable(@RequestBody SeatsAvailable seatsAvailable) {
         SeatsAvailable updateSeatsAvailable = seatsAvailableService.updateSeatsAvailable(seatsAvailable);
         return new ResponseEntity<>(updateSeatsAvailable, HttpStatus.OK);
     }

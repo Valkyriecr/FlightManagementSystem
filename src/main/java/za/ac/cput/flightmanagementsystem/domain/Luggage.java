@@ -49,6 +49,7 @@ public class Luggage implements Serializable {
 
     public float getWeight() {
         return weight;
+
     }
 
     public String getLuggageType() {
@@ -66,12 +67,21 @@ public class Luggage implements Serializable {
     }
     public void setWeight(float weight) {
         this.weight = weight;
+        isOverWeight(weight);
     }
 
     public void setLuggageType(String luggageType) {
         this.luggageType = luggageType;
     }
 
+    public void isOverWeight(float weight) {
+        if (weight > weightLimit) {
+            this.isOverWeight = true;
+        } else {
+            this.isOverWeight = false;
+        }
+
+    }
 
 
 
@@ -97,6 +107,7 @@ public class Luggage implements Serializable {
 
         public Builder setWeight(float weight) {
             this.weight = weight;
+            isOverWeight(weight);
             return this;
         }
 
@@ -105,7 +116,7 @@ public class Luggage implements Serializable {
             return this;
         }
 
-        public Builder IsOverWeight(float weight) {
+        public Builder isOverWeight(float weight) {
             float weightLimit = 20;
             if (weight > weightLimit){
                 this.isOverWeight = true;

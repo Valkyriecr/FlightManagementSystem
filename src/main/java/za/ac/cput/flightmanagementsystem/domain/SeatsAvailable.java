@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Embeddable
+@Entity
 public class SeatsAvailable implements Serializable {
     public SeatsAvailable() {
 
@@ -18,24 +19,27 @@ public class SeatsAvailable implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
-    private long seatId;
+    private long id;
+    @Column
     private String numberSeat;
+    @Column
     private String bookedSeat;
+    @Column
     private int reservedSeat;
 
     private SeatsAvailable (Builder builder){
-        this.seatId= builder.seatId;
+        this.id= builder.id;
         this.numberSeat= builder.numberSeat;
         this.bookedSeat= builder.bookedSeat;
         this.reservedSeat= builder.reservedSeat;
     }
 
     public long getSeatId() {
-        return seatId;
+        return id;
     }
 
-    public void setSeatId(long seatId) {
-        this.seatId = seatId;
+    public void setSeatId(long id) {
+        this.id = id;
     }
 
     public String getNumberSeat() {
@@ -65,7 +69,7 @@ public class SeatsAvailable implements Serializable {
     @Override
     public String toString() {
         return "SeatsAvailable{" +
-                "seatId='" + seatId + '\'' +
+                "seat Id='" + id + '\'' +
                 ", numberSeat=" + numberSeat +
                 ", bookedSeat='" + bookedSeat + '\'' +
                 ", reservedSeat=" + reservedSeat +
@@ -74,13 +78,13 @@ public class SeatsAvailable implements Serializable {
 
 
     public static class Builder{
-        private long seatId;
+        private long id;
         private String numberSeat;
         private String bookedSeat;
         private int reservedSeat;
 
-        public Builder setSeatId(long seatId) {
-            this.seatId = seatId;
+        public Builder setSeatId(long id) {
+            this.id = id;
             return this;
         }
         public Builder setNumberSeat(String numberSeat) {
@@ -98,7 +102,7 @@ public class SeatsAvailable implements Serializable {
             return this;
         }
         public Builder copy(SeatsAvailable seatsAvailable) {
-            this.seatId= seatsAvailable.seatId;
+            this.id= seatsAvailable.id;
             this.numberSeat = seatsAvailable.numberSeat;
             this.bookedSeat = seatsAvailable.bookedSeat;
             this.reservedSeat = seatsAvailable.reservedSeat;

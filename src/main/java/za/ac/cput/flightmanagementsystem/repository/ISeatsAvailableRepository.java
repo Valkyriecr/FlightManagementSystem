@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import za.ac.cput.flightmanagementsystem.domain.SeatsAvailable;
 
 import java.util.Optional;
-@Repository
+
 public interface ISeatsAvailableRepository extends JpaRepository<SeatsAvailable, Long> {
     void deleteSeatsAvailableById(Long id);
 
