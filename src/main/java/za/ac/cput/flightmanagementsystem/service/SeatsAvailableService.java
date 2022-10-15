@@ -3,7 +3,7 @@ package za.ac.cput.flightmanagementsystem.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.flightmanagementsystem.domain.SeatsAvailable;
-import za.ac.cput.flightmanagementsystem.exception.UserNotFoundException;
+import za.ac.cput.flightmanagementsystem.exception.NotFoundException;
 import za.ac.cput.flightmanagementsystem.repository.ISeatsAvailableRepository;
 
 import javax.transaction.Transactional;
@@ -34,7 +34,7 @@ public class SeatsAvailableService {
 
     public SeatsAvailable findSeatsAvailableById(Long id) {
         return seatsAvailableRepository.findSeatsAvailableById(id)
-                .orElseThrow(() -> new UserNotFoundException("Seat by id " + id + " was not available"));
+                .orElseThrow(() -> new NotFoundException("Seat by id " + id + " was not available"));
     }
 
     public void deleteSeatsAvailable(Long id){

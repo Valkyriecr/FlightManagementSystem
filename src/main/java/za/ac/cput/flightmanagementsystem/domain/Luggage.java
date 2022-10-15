@@ -17,7 +17,7 @@ public class Luggage implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, updatable = false)
     private long id;
-    private String luggageOwner;
+    private String luggageOwner; //luggageOwner.getID();
 
     private float weight;
 
@@ -74,13 +74,13 @@ public class Luggage implements Serializable {
         this.luggageType = luggageType;
     }
 
-    public void isOverWeight(float weight) {
+    public boolean isOverWeight(float weight) {
         if (weight > weightLimit) {
             this.isOverWeight = true;
         } else {
             this.isOverWeight = false;
         }
-
+        return isOverWeight;
     }
 
 

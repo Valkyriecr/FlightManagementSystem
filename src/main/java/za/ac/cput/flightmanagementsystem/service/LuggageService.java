@@ -5,7 +5,7 @@ package za.ac.cput.flightmanagementsystem.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.flightmanagementsystem.domain.Luggage;
-import za.ac.cput.flightmanagementsystem.exception.UserNotFoundException;
+import za.ac.cput.flightmanagementsystem.exception.NotFoundException;
 import za.ac.cput.flightmanagementsystem.repository.ILuggageRepository;
 
 import javax.transaction.Transactional;
@@ -36,7 +36,7 @@ public class LuggageService {
 
     public Luggage findLuggageById(Long id) {
         return luggageRepository.findLuggageById(id)
-                .orElseThrow(() -> new UserNotFoundException("Luggage by id " + id + " was not found"));
+                .orElseThrow(() -> new NotFoundException("Luggage by id " + id + " was not found"));
     }
 
     public void deleteLuggage(Long id){
