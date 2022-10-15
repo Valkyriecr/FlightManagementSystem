@@ -23,6 +23,15 @@ public class Luggage implements Serializable {
 
     private String luggageType;
     private final float weightLimit = 20;
+
+    public boolean isOverWeight() {
+        return isOverWeight;
+    }
+
+    public void setOverWeight(boolean overWeight) {
+        isOverWeight = overWeight;
+    }
+
     private boolean isOverWeight;
 
     protected Luggage() {
